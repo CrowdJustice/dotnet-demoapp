@@ -5,7 +5,7 @@ build:
     build:
       - dotnet publish -c Release -o out src/dotnet-demoapp.csproj
 run:                              
-  command: dotnet out/dotnet-demo.dll
+  command: "dotnet out/dotnet-demo.dll"
   network:
     port: 5000
   env:
