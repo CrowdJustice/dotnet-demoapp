@@ -3,7 +3,7 @@ runtime: dotnet6
 build:
   commands:    
     build:
-      - "dotnet publish -c Release -o out src/dotnet-demoapp.csproj && cp /build/src/bin/Release/net6.0/publish/ ."
+      - "dotnet publish -c Release -o out src/dotnet-demoapp.csproj && cp src/bin/Release/net6.0/publish/ ."
 run:                              
   command: "dotnet dotnet-demo.dll"
   network:
