@@ -3,12 +3,10 @@ runtime: dotnet6
 build:
   commands:    
     build:
-      - "dotnet publish -c Release src/dotnet-demoapp.csproj"
-    post-build:
-      - "cp -r src/bin/Release/net6.0/publish/* ."
+      - "dotnet publish -c Release -o out src/dotnet-demoapp.csproj"
 
 run:                              
-  command: "dotnet dotnet-demoapp.dll"
+  command: "dotnet out/dotnet-demoapp.dll"
   network:
     port: 5000
   env:
