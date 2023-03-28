@@ -1,20 +1,14 @@
 version: 1.0
 runtime: dotnet6
 build:
-  commands:    
+  commands:
     build:
-      - "dotnet publish -c Release src/dotnet-demoapp.csproj"
-    post-build:
-      - "cp -r src/bin/Release/net6.0/publish/* ."
-
-run:                              
-  command: "dotnet demo.dll"
+      - dotnet publish -c Release -o out
+run:
+  command: dotnet out/HelloWorldDotNetApp.dll
   network:
     port: 5000
+    env: APP_PORT
   env:
     - name: ASPNETCORE_URLS
-      value: "http://*:5000"
-    - name: ASPNETCORE_ENVIRONMENT 
-      value: Production
-    - name: ASPNETCORE_FORWARDEDHEADERS_ENABLED
-      value: true
+      value: "http://*:5000"     value: true
