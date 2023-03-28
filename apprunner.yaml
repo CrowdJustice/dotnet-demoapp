@@ -5,7 +5,7 @@ build:
     build:
       - "dotnet publish -c Release src/dotnet-demoapp.csproj"
     post-build:
-      - "cp src/bin/Release/net6.0/publish/* ."
+      - "cp -r src/bin/Release/net6.0/publish/* ."
 
 run:                              
   command: "dotnet dotnet-demo.dll"
