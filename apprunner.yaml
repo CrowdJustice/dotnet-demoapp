@@ -8,7 +8,7 @@ build:
       - "cp -r src/bin/Release/net6.0/publish/* ."
 
 run:                              
-  command: "dotnet dotnet-demo.dll"
+  command: "dotnet demo.dll"
   network:
     port: 5000
   env:
