@@ -13,22 +13,22 @@
         <td><i class="fa fa-fw fa-cube"></i> Containerized:</td>
         @if (Model.isInContainer)
         {
-          <td>Looks like we're running in a Docker container! &#x1F604;</td>
+          <td></td>
         }
         else
         {
-          <td>Not running as a Docker container &#x1F622;</td>
+          <td></td>
         }
       </tr>
       <tr>
         <td><i class="fa fa-fw fa-project-diagram"></i> Kubernetes:</td>
         @if (Model.isInKubernetes)
         {
-          <td>We're also running in a Kubernetes pod! &#x1f44d;</td>
+          <td></td>
         }
         else
         {
-          <td>Not running in Kubernetes &#x1F622;</td>
+          <td></td>
         }
       </tr>
       <tr>
