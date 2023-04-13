@@ -3,5 +3,5 @@ build:
     web: Dockerfile
     poller: poller/Dockerfile
 run:
-  web: dotnet dotnet-demoapp.dll
+  web: run.sh
   poller: crond -l 2 -f

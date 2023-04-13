@@ -10,7 +10,7 @@ COPY src ./src
 # Restore, build & publish
 WORKDIR /build/src
 RUN dotnet restore
-RUN dotnet publish --no-restore --configuration Release
+RUN dotnet publish -c Release -o /app/out src/dotnet-demoapp.csproj
 
 # Metadata in Label Schema format (http://label-schema.org)
 LABEL org.label-schema.name    = ".NET Core Demo Web App" \
@@ -20,9 +20,7 @@ LABEL org.label-schema.name    = ".NET Core Demo Web App" \
 
 # Seems as good a place as any
 WORKDIR /app
-
-# Copy already published binaries (from build stage image)
-RUN cp -r /build/src/bin/Release/net6.0/publish/ .
+COPY run.sh .
 
 # Expose port 5000 from Kestrel webserver
 EXPOSE 80
