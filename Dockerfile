@@ -2,6 +2,7 @@
 # Base image is .NET Core runtime only (Linux)
 FROM mcr.microsoft.com/dotnet/sdk:6.0-alpine
 
+# Build dotnet-demoapp
 WORKDIR /build
 
 # Copy project source files
@@ -12,11 +13,12 @@ WORKDIR /build/src
 RUN dotnet restore
 RUN dotnet publish -c Release -o /app/out dotnet-demoapp.csproj
 
-# Metadata in Label Schema format (http://label-schema.org)
-LABEL org.label-schema.name    = ".NET Core Demo Web App" \
-      org.label-schema.version = "1.5.0" \
-      org.label-schema.vendor  = "Ben Coleman" \
-      org.opencontainers.image.source = "https://github.com/benc-uk/dotnet-demoapp"
+# Build poller
+WORKDIR /build-poller
+COPY poller/*.csproj .
+RUN dotnet restore
+COPY poller .
+RUN dotnet publish -c Release -o /app --no-restore
 
 # Seems as good a place as any
 WORKDIR /app
