@@ -23,10 +23,10 @@ WORKDIR /app
 COPY run.sh .
 
 # Expose port 5000 from Kestrel webserver
-EXPOSE 80
+EXPOSE $PORT
 
 # Tell Kestrel to listen on port 5000 and serve plain HTTP
-ENV ASPNETCORE_URLS http://*:80
+ENV ASPNETCORE_URLS http://*:$PORT
 ENV ASPNETCORE_ENVIRONMENT Production
 # This is critical for the Azure AD signin flow to work in Kubernetes and App Service
 ENV ASPNETCORE_FORWARDEDHEADERS_ENABLED=true
