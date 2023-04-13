@@ -2,11 +2,11 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0-alpine
 WORKDIR /source
 
 # copy csproj and restore as distinct layers
-COPY poller/*.csproj .
+COPY *.csproj .
 RUN dotnet restore
 
 # copy and publish app and libraries
-COPY poller .
+COPY . .
 RUN dotnet publish -c Release -o /app --no-restore
 
 # copy the cron config into the right place

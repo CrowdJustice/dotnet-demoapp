@@ -1,6 +1,6 @@
 build:
   docker:
-    web: build/Dockerfile
+    web: Dockerfile
     poller: poller/Dockerfile
 run:
   web: dotnet dotnet-demoapp.dll
