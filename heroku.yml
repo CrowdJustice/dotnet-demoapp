@@ -1,0 +1,7 @@
+build:
+  docker:
+    web: build/Dockerfile
+    poller: poller/Dockerfile
+run:
+  web: dotnet dotnet-demoapp.dll
+  poller: crond -l 2 -f
