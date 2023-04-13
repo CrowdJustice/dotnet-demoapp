@@ -10,7 +10,7 @@ COPY . .
 RUN dotnet publish -c Release -o /app --no-restore
 
 # copy the cron config into the right place
-COPY poller/crontab /var/spool/cron/crontabs/root
+COPY crontab /var/spool/cron/crontabs/root
 RUN chmod 644 /var/spool/cron/crontabs/root
 
 # set the current working directory
