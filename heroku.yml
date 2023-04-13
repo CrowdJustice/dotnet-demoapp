@@ -3,5 +3,5 @@ build:
     web: Dockerfile
     poller: poller/Dockerfile
 run:
-  web: run.sh
+  web: /app/run.sh
   poller: crond -l 2 -f
