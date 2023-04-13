@@ -1,1 +1,3 @@
- * * * * * dotnet /app/poller.dll > /dev/stdout
+* * * * * echo "tick"
+* * * * * dotnet /app/poller.dll
+* * * * * ls /app

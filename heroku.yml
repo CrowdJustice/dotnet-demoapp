@@ -4,4 +4,4 @@ build:
     poller: poller/Dockerfile
 run:
   web: /app/run.sh
-  poller: crond -l 2 -f
+  poller: crond -d 2 -f
