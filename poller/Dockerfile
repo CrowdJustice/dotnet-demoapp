@@ -15,4 +15,3 @@ RUN chmod 644 /var/spool/cron/crontabs/root
 
 # set the current working directory
 WORKDIR /app
-ENTRYPOINT ["crond", "-l", "2", "-f"]

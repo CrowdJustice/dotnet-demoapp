@@ -32,6 +32,3 @@ ENV ASPNETCORE_URLS http://*:80
 ENV ASPNETCORE_ENVIRONMENT Production
 # This is critical for the Azure AD signin flow to work in Kubernetes and App Service
 ENV ASPNETCORE_FORWARDEDHEADERS_ENABLED=true
-
-# Run the ASP.NET Core app
-ENTRYPOINT dotnet dotnet-demoapp.dll
