@@ -8,8 +8,9 @@ WORKDIR /build
 COPY src ./src
 
 # Restore, build & publish
+WORKDIR /build/src
 RUN dotnet restore
-RUN dotnet publish -c Release -o /app/out src/dotnet-demoapp.csproj
+RUN dotnet publish -c Release -o /app/out dotnet-demoapp.csproj
 
 # Metadata in Label Schema format (http://label-schema.org)
 LABEL org.label-schema.name    = ".NET Core Demo Web App" \
