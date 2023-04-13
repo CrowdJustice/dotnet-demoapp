@@ -1,6 +1,6 @@
 
 # Base image is .NET Core runtime only (Linux)
-FROM mcr.microsoft.com/dotnet/aspnet:6.0-alpine
+FROM mcr.microsoft.com/dotnet/sdk:6.0-alpine
 
 WORKDIR /build
 
@@ -21,11 +21,8 @@ LABEL org.label-schema.name    = ".NET Core Demo Web App" \
 # Seems as good a place as any
 WORKDIR /app
 
-RUN pwd
-RUN ls /build/src/bin/Release/net6.0/publish/
-RUN ls .
 # Copy already published binaries (from build stage image)
-COPY /build/src/bin/Release/net6.0/publish/ .
+RUN cp -r /build/src/bin/Release/net6.0/publish/ .
 
 # Expose port 5000 from Kestrel webserver
 EXPOSE 80
