@@ -8,7 +8,6 @@ WORKDIR /build
 COPY src ./src
 
 # Restore, build & publish
-WORKDIR /build/src
 RUN dotnet restore
 RUN dotnet publish -c Release -o /app/out src/dotnet-demoapp.csproj
 
