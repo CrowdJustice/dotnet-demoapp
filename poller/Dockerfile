@@ -8,7 +8,6 @@ RUN dotnet restore
 # copy and publish app and libraries
 COPY . .
 RUN dotnet publish -c Release -o /app --no-restore
-
 # copy the cron config into the right place
 COPY crontab /var/spool/cron/crontabs/root
 RUN chmod 644 /var/spool/cron/crontabs/root

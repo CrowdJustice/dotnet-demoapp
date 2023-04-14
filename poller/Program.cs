@@ -1,10 +1,12 @@
 ﻿namespace poller;
+using Microsoft.Data.SqlClient;
 class Program
 {
     static void Main(string[] args)
     {
         Console.WriteLine("Hello, World!");
 		Program.Poll();
+		Program.CheckDb();
     }
     static void Poll() {
 		// In production code, don't destroy the HttpClient through using, but better use 
@@ -18,6 +20,16 @@ class Program
         		var response = httpClient.Send(request);
         		Console.WriteLine(response.ToString());
     		}
+		}
+    }
+
+    static void CheckDb() {
+		var url = System.Environment.GetEnvironmentVariable("MSSQL_URL");
+		using (SqlConnection connection = new SqlConnection(url)) {
+			connection.Open();
+            Console.WriteLine("ServerVersion: {0}", connection.ServerVersion);
+            Console.WriteLine("State: {0}", connection.State);
+            Console.WriteLine(connection.GetSchema().ToString());
 		}
     }
 }
